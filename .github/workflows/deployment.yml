@@ -1,4 +1,4 @@
-name: Deploy Project
+name: Deploy Project (PUSH/WORKFLOW_DISPATCH)
 on: [push, workflow_dispatch]
 jobs:
   test:

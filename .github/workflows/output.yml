@@ -4,5 +4,5 @@ jobs:
   info:
     runs-on: ubuntu-latest
     steps:
-      - name: Output Github context
-        run: echo "${{ toJSON(github) }}"
+      - name: Output name of the event that triggered the workflow run.
+        run: echo "${{ toJSON(github.event_name) }}"
