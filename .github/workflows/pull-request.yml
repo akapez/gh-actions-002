@@ -3,7 +3,18 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main # main
+      - "dev-*" # dev-001
+      - "feat/**" # feat/new
   workflow_dispatch:
+  push:
+    branches:
+      - main # main
+      - "dev-*" # dev-001
+      - "feat/**" # feat/new
+    paths-ignore:
+      - ".github/workflows/*"
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,7 +22,7 @@ jobs:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
       - name: Get code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v3
       - name: Install dependencies
         run: npm ci
       - name: Test code
